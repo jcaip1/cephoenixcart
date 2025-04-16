@@ -8,7 +8,7 @@ services:
     ports:
       - "1080:80"
     volumes:
-      - ./:/var/www/html
+      - apache1080_data:/var/www/html
     depends_on:
       - db1080
     links:
@@ -27,3 +27,4 @@ services:
       - db1080_data:/var/lib/mysql
 volumes:
   db1080_data:
+  apache1080_data:
