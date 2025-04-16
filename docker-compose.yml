@@ -3,7 +3,7 @@ services:
     build:
       context: ./
       dockerfile: php.Dockerfile
-    image: php:7.3-apache-buster
+    image: php:8.0.30-apache-buster
     restart: always
     ports:
       - "1080:80"
