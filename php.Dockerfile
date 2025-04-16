@@ -1,6 +1,6 @@
 FROM arm64v8/php:7.3-apache-buster
 
-RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
+COPY php.ini /usr/local/etc/php/php.ini
 RUN apt-get update
 RUN apt-get install libzip-dev -y
 RUN apt-get install zip -y
