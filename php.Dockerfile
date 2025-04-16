@@ -1,11 +1,11 @@
-FROM arm64v8/php:7.3-apache-buster
+FROM php:7.3-apache-buster
 
 COPY php.ini /usr/local/etc/php/php.ini
-RUN apt-get update
-RUN apt-get install libzip-dev -y
-RUN apt-get install zip -y
-RUN apt-get install vim -y
-RUN apt-get install sendmail -y
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    vim \
+    sendmail
 
 RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-install zip
