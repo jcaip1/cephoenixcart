@@ -14,7 +14,7 @@ services:
     links:
       - db1080
   db1080:
-    image: arm64v8/mariadb:latest
+    image: mariadb:latest
     environment:
       MARIADB_ROOT_PASSWORD: phoenix
       MYSQL_ROOT_PASSWORD: phoenix
