@@ -1,0 +1,29 @@
+services:
+  apache1080:
+    build:
+      context: ./
+      dockerfile: php.Dockerfile
+    image: arm64v8/php:7.3-apache-buster
+    restart: always
+    ports:
+      - "1080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db1080
+    links:
+      - db1080
+  db1080:
+    image: arm64v8/mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: phoenix
+      MYSQL_ROOT_PASSWORD: phoenix
+      MYSQL_DATABASE: phoenix1080
+      MYSQL_USER: phoenix
+      MYSQL_PASSWORD: phoenix
+    ports:
+      - "3306:3306"
+    volumes:
+      - db1080_data:/var/lib/mysql
+volumes:
+  db1080_data:
